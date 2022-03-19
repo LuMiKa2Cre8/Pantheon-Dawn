@@ -116,7 +116,7 @@ public class Entity : MonoBehaviour
         GameObject damagepopup;
         damagepopup = Resources.Load("DamageTextLocation") as GameObject;
 
-        GameObject newdamagepopup = Instantiate(damagepopup, this.transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
+        GameObject newdamagepopup = Instantiate(damagepopup, this.transform.position, Quaternion.identity, GameObject.Find("DamageNumbers").transform);
         newdamagepopup.transform.GetChild(0).GetComponent<Text>().text = "" +damagetobeshown;
 
         Destroy(newdamagepopup.gameObject, 1f);
