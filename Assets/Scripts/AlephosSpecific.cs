@@ -282,7 +282,7 @@ public class AlephosSpecific : MonoBehaviour
 
     void AlephosSecondary()
     {
-        GameObject.Find("WChargeIndicator").transform.localScale = new Vector2(SecondaryCharge / 10f, 0.1f);
+        GameObject.Find("WChargeIndicator").transform.localScale = new Vector2(135.3136f * (SecondaryCharge / 10f), 13.53136f);
         GameObject.Find("WCooldownIndicator").GetComponent<SpriteRenderer>().color = new Color(0,0,0, ((10-SecondaryCharge)/10 * 208 / 255f));
 
 

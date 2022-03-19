@@ -19,13 +19,14 @@ public class PlayableCharacter: MonoBehaviour
     public float invincibilityframes = 40f;
     public float actualinvincibilityframes;
     GameObject[] enemies;
-
+    PlatformEffector2D platform;
 
 
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        platform = GameObject.Find("Platforms").GetComponent<PlatformEffector2D>();
     }
 
     // Update is called once per frame
@@ -33,8 +34,7 @@ public class PlayableCharacter: MonoBehaviour
     {
 
         FakeGravityGenerator();
-
-
+        PassThroughPlatform();
 
 
         Invincibility();
@@ -60,6 +60,7 @@ public class PlayableCharacter: MonoBehaviour
         if (lockedcontrols == false)
         {
             Run();
+            
         }
         else
         {
@@ -238,5 +239,18 @@ public class PlayableCharacter: MonoBehaviour
     public void Uninvincible()
     {
         GetComponent<PlayableCharacter>().selfprotect = false;
+    }
+
+    private void PassThroughPlatform()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            platform.useColliderMask = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            platform.useColliderMask = false;
+        }
     }
 }
