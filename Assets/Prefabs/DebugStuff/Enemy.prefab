@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7879e0a1626e50f478415e71d720d634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 300
-  MaxHP: 300
+  HP: 100
+  MaxHP: 100
   islooking_right: 1
   hpbar: {fileID: 3534033717397110001}
   damage_reduction: 1
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f1bc9ad4b5f0ac46b360ac69525e502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contactdamage: 4
+  contactdamage: 1
   contactknockback: 2
   hurtframes: 10
   actualhurtframes: 0
