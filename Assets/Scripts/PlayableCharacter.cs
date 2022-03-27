@@ -6,6 +6,7 @@ public class PlayableCharacter: MonoBehaviour
 {
     Rigidbody2D rb;
     public GameObject groundchecker;
+    public GameObject platform;
     public float characterspeed = 40f;
     public float characterjumpstrength = 40f;
     public float characterjumpcancelstrength = 40f;
@@ -19,6 +20,7 @@ public class PlayableCharacter: MonoBehaviour
     public float invincibilityframes = 40f;
     public float actualinvincibilityframes;
     GameObject[] enemies;
+    
 
 
 
@@ -47,6 +49,7 @@ public class PlayableCharacter: MonoBehaviour
         if (lockedcontrols == false)
         {
             Jump();
+            DropThroughPlatform();
         }
         else
         {
@@ -143,12 +146,18 @@ public class PlayableCharacter: MonoBehaviour
         {
             rb.AddForce(Vector3.down * rb.velocity.y * characterjumpcancelstrength / 15, ForceMode2D.Force);
         }
+    }
 
-
-        
-
-
-
+    void DropThroughPlatform()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            platform.GetComponent<PlatformEffector2D>().useColliderMask = true;
+        }
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            platform.GetComponent<PlatformEffector2D>().useColliderMask = false;
+        }
     }
 
     void FakeGravityGenerator()
